@@ -1,0 +1,50 @@
+Source: kig
+Section: kde
+Priority: optional
+Maintainer: Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>
+Uploaders: Aurélien COUDERC <coucouf@debian.org>,
+           Norbert Preining <norbert@preining.info>,
+           Sune Vuorela <sune@debian.org>,
+Build-Depends: cmake (>= 3.5~),
+               debhelper-compat (= 13),
+               dh-python,
+               extra-cmake-modules (>= 1.7~),
+               gettext,
+               kinit-dev,
+               libboost-python-dev (>= 1.71~),
+               libkf5archive-dev,
+               libkf5configwidgets-dev,
+               libkf5coreaddons-dev,
+               libkf5crash-dev (>= 5.15~),
+               libkf5doctools-dev,
+               libkf5i18n-dev,
+               libkf5iconthemes-dev,
+               libkf5parts-dev,
+               libkf5texteditor-dev,
+               libkf5xmlgui-dev (>= 5.1~),
+               libqt5svg5-dev (>= 5.4),
+               libqt5xmlpatterns5-dev (>= 5.5.1~),
+               pkg-config,
+               pkg-kde-tools (>> 0.15.15),
+               python3:any,
+               qtbase5-dev (>= 5.4),
+Standards-Version: 4.5.1
+Rules-Requires-Root: no
+Homepage: https://edu.kde.org/kig
+Vcs-Browser: https://salsa.debian.org/qt-kde-team/kde/kig
+Vcs-Git: https://salsa.debian.org/qt-kde-team/kde/kig.git
+
+Package: kig
+Architecture: any
+Section: math
+Depends: ${misc:Depends}, ${python3:Depends}, ${shlibs:Depends}
+Suggests: khelpcenter
+Description: interactive geometry tool
+ Kig is an application for interactive geometric construction, allowing
+ students to draw and explore mathematical figures and concepts using the
+ computer.
+ .
+ Kig supports macros and is scriptable using Python.  It can import and export
+ files in various formats, including SVG, Cabri, Dr. Geo, KGeo, KSeg, and XFig.
+ .
+ This package is part of the KDE education module.
