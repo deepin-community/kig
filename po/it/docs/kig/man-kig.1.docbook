@@ -18,9 +18,9 @@
 >bab@debian.org</email
 ></author>
 <date
->2015-08-27</date>
+>23/12/2020</date>
 <releaseinfo
->&kig; 1.0 (Applications 15.12)</releaseinfo>
+>Applications 20.12</releaseinfo>
 <productname
 >KDE Applications</productname>
 </refentryinfo>
@@ -40,7 +40,7 @@
 >kig</command
 ></refname>
 <refpurpose
->un programma di geometria interattiva di &kde;</refpurpose>
+>Un programma per la geometria interattiva di &kde;</refpurpose>
 </refnamediv>
 
 <refsynopsisdiv>
@@ -78,7 +78,7 @@
 ></listitem
 ></itemizedlist>
 <para
->Con questo programma puoi fare geometria con il computer esattamente come fai sulla lavagna in classe. Tuttavia il programma ti permette di muovere e modificare parti delle figure geometriche così puoi vedere come le altre parti si muovono di conseguenza.</para>
+>Con questo programma puoi fare geometria con il computer, esattamente come la faresti in classe, alla lavagna. Tuttavia il programma ti permette di spostare e di modificare parti delle figure geometriche, così da poter vedere come  si spostano di conseguenza le altre parti.</para>
 <para
 >&kig; supporta i luoghi e le macro definite dall'utente. Importa ed esporta anche da altri formati, tra cui <application
 >Cabri</application
@@ -134,11 +134,9 @@
 <title
 >Vedi anche</title>
 <para
->La documentazione utente più dettagliata è disponibile da <ulink url="help:/kig"
+>Una documentazione utente più dettagliata è disponibile da <ulink url="help:/kig"
 >help:/kig</ulink
-> (inserisci questo come <acronym
->URL</acronym
-> in &konqueror;, o esegui <userinput
+> (inserisci questo come &URL; in &konqueror;, o esegui <userinput
 ><command
 >khelpcenter</command
 > <parameter
@@ -147,9 +145,9 @@
 >).</para>
 
 <para
->Ulteriori informazioni sono disponibili sul <ulink url="http://edu.kde.org/kig/"
->sito web di &kde; edu</ulink
-></para>
+>Maggiori informazioni sono disponibili anche presso il <ulink url="https://edu.kde.org/kig/"
+>sito web di &kde; Education</ulink
+>.</para>
 </refsect1>
 
 <refsect1>
@@ -198,7 +196,7 @@
 >david.narvaez@computer.org</email
 >, e altri.</para>
 <para
->Questa pagina di manuale è basata su quella scritta per Debian da <personname
+>Questa pagina di manuale è basata su quella scritta per &Debian; da <personname
 ><firstname
 >Ben</firstname
 ><surname

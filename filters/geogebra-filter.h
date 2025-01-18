@@ -6,14 +6,9 @@
 
 */
 
-#ifndef GEOGEBRA_FILTER_H
-#define GEOGEBRA_FILTER_H
+#pragma once
 
 #include "filter.h"
-
-#include <QMap>
-#include <QAbstractXmlReceiver>
-#include <QXmlNamePool>
 
 class ObjectCalcer;
 class ObjectType;
@@ -21,14 +16,15 @@ class ObjectType;
 class KigFilterGeogebra : public KigFilter
 {
 public:
-    static KigFilterGeogebra* instance();
-    KigDocument* load ( const QString& fromfile ) Q_DECL_OVERRIDE;
-    bool supportMime ( const QString& mime ) Q_DECL_OVERRIDE;
+    static KigFilterGeogebra *instance();
+    KigDocument *load(const QString &fromfile) override;
+    bool supportMime(const QString &mime) override;
 
 protected:
-    KigFilterGeogebra() {}
-    ~KigFilterGeogebra() {}
+    KigFilterGeogebra()
+    {
+    }
+    ~KigFilterGeogebra()
+    {
+    }
 };
-
-#endif // GEOGEBRA_FILTER_H
-

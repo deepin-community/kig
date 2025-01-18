@@ -3,35 +3,31 @@
 
 // SPDX-License-Identifier: GPL-2.0-or-later
 
-#ifndef KIG_MISC_ANGLE_TYPE_H
-#define KIG_MISC_ANGLE_TYPE_H
+#pragma once
 
 #include "base_type.h"
 
-class AngleType
-  : public ArgsParserObjectType
+class AngleType : public ArgsParserObjectType
 {
-  AngleType();
-  ~AngleType();
-public:
-  static const AngleType* instance();
-  ObjectImp* calc( const Args& args, const KigDocument& ) const Q_DECL_OVERRIDE;
-  const ObjectImpType* resultId() const Q_DECL_OVERRIDE;
+    AngleType();
+    ~AngleType();
 
-  QStringList specialActions() const Q_DECL_OVERRIDE;
-  void executeAction( int i, ObjectHolder& o, ObjectTypeCalcer& c,
-                      KigPart& d, KigWidget& w, NormalMode& m ) const Q_DECL_OVERRIDE;
+public:
+    static const AngleType *instance();
+    ObjectImp *calc(const Args &args, const KigDocument &) const override;
+    const ObjectImpType *resultId() const override;
+
+    QStringList specialActions() const override;
+    void executeAction(int i, ObjectHolder &o, ObjectTypeCalcer &c, KigPart &d, KigWidget &w, NormalMode &m) const override;
 };
 
-class HalfAngleType
-  : public ArgsParserObjectType
+class HalfAngleType : public ArgsParserObjectType
 {
-  HalfAngleType();
-  ~HalfAngleType();
-public:
-  static const HalfAngleType* instance();
-  ObjectImp* calc( const Args& args, const KigDocument& ) const Q_DECL_OVERRIDE;
-  const ObjectImpType* resultId() const Q_DECL_OVERRIDE;
-};
+    HalfAngleType();
+    ~HalfAngleType();
 
-#endif
+public:
+    static const HalfAngleType *instance();
+    ObjectImp *calc(const Args &args, const KigDocument &) const override;
+    const ObjectImpType *resultId() const override;
+};

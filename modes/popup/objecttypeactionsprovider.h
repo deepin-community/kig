@@ -5,20 +5,16 @@
     SPDX-License-Identifier: GPL-2.0-or-later
 */
 
-#ifndef OBJECTTYPEACTIONSPROVIDER_H
-#define OBJECTTYPEACTIONSPROVIDER_H
+#pragma once
 
 #include "popupactionprovider.h"
 
-class ObjectTypeActionsProvider
-  : public PopupActionProvider
+class ObjectTypeActionsProvider : public PopupActionProvider
 {
-  int mnoa;
-public:
-  void fillUpMenu( NormalModePopupObjects& popup, int menu, int& nextfree ) override;
-  bool executeAction( int menu, int& id, const std::vector<ObjectHolder*>& os,
-                      NormalModePopupObjects& popup,
-                      KigPart& doc, KigWidget& w, NormalMode& m ) override;
-};
+    int mnoa;
 
-#endif // OBJECTTYPEACTIONSPROVIDER_H
+public:
+    void fillUpMenu(NormalModePopupObjects &popup, int menu, int &nextfree) override;
+    bool
+    executeAction(int menu, int &id, const std::vector<ObjectHolder *> &os, NormalModePopupObjects &popup, KigPart &doc, KigWidget &w, NormalMode &m) override;
+};

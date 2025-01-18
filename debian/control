@@ -5,30 +5,30 @@ Maintainer: Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>
 Uploaders: Aurélien COUDERC <coucouf@debian.org>,
            Norbert Preining <norbert@preining.info>,
            Sune Vuorela <sune@debian.org>,
-Build-Depends: cmake (>= 3.5~),
+Build-Depends: cmake (>= 3.16~),
                debhelper-compat (= 13),
                dh-python,
                extra-cmake-modules (>= 1.7~),
                gettext,
                kinit-dev,
                libboost-python-dev (>= 1.71~),
-               libkf5archive-dev,
-               libkf5configwidgets-dev,
-               libkf5coreaddons-dev,
-               libkf5crash-dev (>= 5.15~),
-               libkf5doctools-dev,
-               libkf5i18n-dev,
-               libkf5iconthemes-dev,
-               libkf5parts-dev,
-               libkf5texteditor-dev,
-               libkf5xmlgui-dev (>= 5.1~),
+               libkf5archive-dev (>= 5.90.0~),
+               libkf5configwidgets-dev (>= 5.90.0~),
+               libkf5coreaddons-dev (>= 5.90.0~),
+               libkf5crash-dev (>= 5.90.0~),
+               libkf5doctools-dev (>= 5.90.0~),
+               libkf5i18n-dev (>= 5.90.0~),
+               libkf5iconthemes-dev (>= 5.90.0~),
+               libkf5parts-dev (>= 5.90.0~),
+               libkf5texteditor-dev (>= 5.90.0~),
+               libkf5xmlgui-dev (>= 5.90.0~),
                libqt5svg5-dev (>= 5.4),
                libqt5xmlpatterns5-dev (>= 5.5.1~),
                pkg-config,
                pkg-kde-tools (>> 0.15.15),
                python3:any,
                qtbase5-dev (>= 5.4),
-Standards-Version: 4.5.1
+Standards-Version: 4.6.2
 Rules-Requires-Root: no
 Homepage: https://edu.kde.org/kig
 Vcs-Browser: https://salsa.debian.org/qt-kde-team/kde/kig
@@ -37,8 +37,8 @@ Vcs-Git: https://salsa.debian.org/qt-kde-team/kde/kig.git
 Package: kig
 Architecture: any
 Section: math
-Depends: ${misc:Depends}, ${python3:Depends}, ${shlibs:Depends}
-Suggests: khelpcenter
+Depends: ${misc:Depends}, ${python3:Depends}, ${shlibs:Depends},
+Suggests: khelpcenter,
 Description: interactive geometry tool
  Kig is an application for interactive geometric construction, allowing
  students to draw and explore mathematical figures and concepts using the

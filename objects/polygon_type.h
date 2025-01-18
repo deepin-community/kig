@@ -2,198 +2,197 @@
 
 // SPDX-License-Identifier: GPL-2.0-or-later
 
-#ifndef KIG_OBJECTS_POLYGON_TYPE_H
-#define KIG_OBJECTS_POLYGON_TYPE_H
+#pragma once
 
 #include "base_type.h"
 
 /**
  * Triangle by its vertices
  */
-class TriangleB3PType
-  : public ArgsParserObjectType
+class TriangleB3PType : public ArgsParserObjectType
 {
-  TriangleB3PType();
-  ~TriangleB3PType();
-public:
-  static const TriangleB3PType* instance();
+    TriangleB3PType();
+    ~TriangleB3PType();
 
-  ObjectImp* calc( const Args& parents, const KigDocument& ) const Q_DECL_OVERRIDE;
-  const ObjectImpType* resultId() const Q_DECL_OVERRIDE;
-  bool canMove( const ObjectTypeCalcer& o ) const Q_DECL_OVERRIDE;
-  bool isFreelyTranslatable( const ObjectTypeCalcer& o ) const Q_DECL_OVERRIDE;
-  std::vector<ObjectCalcer*> movableParents( const ObjectTypeCalcer& ourobj ) const Q_DECL_OVERRIDE;
-  void move( ObjectTypeCalcer& o, const Coordinate& to,
-             const KigDocument& d ) const Q_DECL_OVERRIDE;
-  const Coordinate moveReferencePoint( const ObjectTypeCalcer& o ) const Q_DECL_OVERRIDE;
+public:
+    static const TriangleB3PType *instance();
+
+    ObjectImp *calc(const Args &parents, const KigDocument &) const override;
+    const ObjectImpType *resultId() const override;
+    bool canMove(const ObjectTypeCalcer &o) const override;
+    bool isFreelyTranslatable(const ObjectTypeCalcer &o) const override;
+    std::vector<ObjectCalcer *> movableParents(const ObjectTypeCalcer &ourobj) const override;
+    void move(ObjectTypeCalcer &o, const Coordinate &to, const KigDocument &d) const override;
+    const Coordinate moveReferencePoint(const ObjectTypeCalcer &o) const override;
 };
 
 /**
  * Polygon by its vertices
  */
-class PolygonBNPType
-  : public ObjectType
+class PolygonBNPType : public ObjectType
 {
-  PolygonBNPType();
-  ~PolygonBNPType();
+    PolygonBNPType();
+    ~PolygonBNPType();
+
 public:
-  static const PolygonBNPType* instance();
+    static const PolygonBNPType *instance();
 
-  ObjectImp* calc( const Args& parents, const KigDocument& ) const Q_DECL_OVERRIDE;
-  const ObjectImpType* resultId() const Q_DECL_OVERRIDE;
-  const ObjectImpType* impRequirement( const ObjectImp* o, const Args& parents ) const Q_DECL_OVERRIDE;
-  bool isDefinedOnOrThrough( const ObjectImp* o, const Args& parents ) const Q_DECL_OVERRIDE;
-  std::vector<ObjectCalcer*> sortArgs( const std::vector<ObjectCalcer*>& args ) const Q_DECL_OVERRIDE;
-  Args sortArgs( const Args& args ) const Q_DECL_OVERRIDE;
+    ObjectImp *calc(const Args &parents, const KigDocument &) const override;
+    const ObjectImpType *resultId() const override;
+    const ObjectImpType *impRequirement(const ObjectImp *o, const Args &parents) const override;
+    bool isDefinedOnOrThrough(const ObjectImp *o, const Args &parents) const override;
+    std::vector<ObjectCalcer *> sortArgs(const std::vector<ObjectCalcer *> &args) const override;
+    Args sortArgs(const Args &args) const override;
 
-  bool canMove( const ObjectTypeCalcer& o ) const Q_DECL_OVERRIDE;
-  bool isFreelyTranslatable( const ObjectTypeCalcer& o ) const Q_DECL_OVERRIDE;
-  std::vector<ObjectCalcer*> movableParents( const ObjectTypeCalcer& ourobj ) const Q_DECL_OVERRIDE;
-  void move( ObjectTypeCalcer& o, const Coordinate& to,
-             const KigDocument& d ) const Q_DECL_OVERRIDE;
-  const Coordinate moveReferencePoint( const ObjectTypeCalcer& o ) const Q_DECL_OVERRIDE;
+    bool canMove(const ObjectTypeCalcer &o) const override;
+    bool isFreelyTranslatable(const ObjectTypeCalcer &o) const override;
+    std::vector<ObjectCalcer *> movableParents(const ObjectTypeCalcer &ourobj) const override;
+    void move(ObjectTypeCalcer &o, const Coordinate &to, const KigDocument &d) const override;
+    const Coordinate moveReferencePoint(const ObjectTypeCalcer &o) const override;
 };
 
 /**
  * Open Polygon (Polyline, Polygonal Line)
  */
-class OpenPolygonType
-  : public ObjectType
+class OpenPolygonType : public ObjectType
 {
-  OpenPolygonType();
-  ~OpenPolygonType();
+    OpenPolygonType();
+    ~OpenPolygonType();
+
 public:
-  static const OpenPolygonType* instance();
+    static const OpenPolygonType *instance();
 
-  ObjectImp* calc( const Args& parents, const KigDocument& ) const Q_DECL_OVERRIDE;
-  const ObjectImpType* resultId() const Q_DECL_OVERRIDE;
-  const ObjectImpType* impRequirement( const ObjectImp* o, const Args& parents ) const Q_DECL_OVERRIDE;
-  bool isDefinedOnOrThrough( const ObjectImp* o, const Args& parents ) const Q_DECL_OVERRIDE;
-  std::vector<ObjectCalcer*> sortArgs( const std::vector<ObjectCalcer*>& args ) const Q_DECL_OVERRIDE;
-  Args sortArgs( const Args& args ) const Q_DECL_OVERRIDE;
+    ObjectImp *calc(const Args &parents, const KigDocument &) const override;
+    const ObjectImpType *resultId() const override;
+    const ObjectImpType *impRequirement(const ObjectImp *o, const Args &parents) const override;
+    bool isDefinedOnOrThrough(const ObjectImp *o, const Args &parents) const override;
+    std::vector<ObjectCalcer *> sortArgs(const std::vector<ObjectCalcer *> &args) const override;
+    Args sortArgs(const Args &args) const override;
 
-  bool canMove( const ObjectTypeCalcer& o ) const Q_DECL_OVERRIDE;
-  bool isFreelyTranslatable( const ObjectTypeCalcer& o ) const Q_DECL_OVERRIDE;
-  std::vector<ObjectCalcer*> movableParents( const ObjectTypeCalcer& ourobj ) const Q_DECL_OVERRIDE;
-  void move( ObjectTypeCalcer& o, const Coordinate& to,
-             const KigDocument& d ) const Q_DECL_OVERRIDE;
-  const Coordinate moveReferencePoint( const ObjectTypeCalcer& o ) const Q_DECL_OVERRIDE;
+    bool canMove(const ObjectTypeCalcer &o) const override;
+    bool isFreelyTranslatable(const ObjectTypeCalcer &o) const override;
+    std::vector<ObjectCalcer *> movableParents(const ObjectTypeCalcer &ourobj) const override;
+    void move(ObjectTypeCalcer &o, const Coordinate &to, const KigDocument &d) const override;
+    const Coordinate moveReferencePoint(const ObjectTypeCalcer &o) const override;
 };
 
 /**
  * Polygon by center and vertex
  */
-class PolygonBCVType
-  : public ObjectType
+class PolygonBCVType : public ObjectType
 {
-  PolygonBCVType();
-  ~PolygonBCVType();
+    PolygonBCVType();
+    ~PolygonBCVType();
+
 public:
-  static const PolygonBCVType* instance();
+    static const PolygonBCVType *instance();
 
-  ObjectImp* calc( const Args& parents, const KigDocument& ) const Q_DECL_OVERRIDE;
-  const ObjectImpType* resultId() const Q_DECL_OVERRIDE;
+    ObjectImp *calc(const Args &parents, const KigDocument &) const override;
+    const ObjectImpType *resultId() const override;
 
-  const ObjectImpType* impRequirement( const ObjectImp* o, const Args& parents ) const Q_DECL_OVERRIDE;
-  bool isDefinedOnOrThrough( const ObjectImp* o, const Args& parents ) const Q_DECL_OVERRIDE;
-  std::vector<ObjectCalcer*> sortArgs( const std::vector<ObjectCalcer*>& args ) const Q_DECL_OVERRIDE;
-  Args sortArgs( const Args& args ) const Q_DECL_OVERRIDE;
-  bool canMove( const ObjectTypeCalcer& o ) const Q_DECL_OVERRIDE;
-  bool isFreelyTranslatable( const ObjectTypeCalcer& o ) const Q_DECL_OVERRIDE;
-  std::vector<ObjectCalcer*> movableParents( const ObjectTypeCalcer& ourobj ) const Q_DECL_OVERRIDE;
-  void move( ObjectTypeCalcer& o, const Coordinate& to,
-             const KigDocument& d ) const Q_DECL_OVERRIDE;
-  const Coordinate moveReferencePoint( const ObjectTypeCalcer& o ) const Q_DECL_OVERRIDE;
+    const ObjectImpType *impRequirement(const ObjectImp *o, const Args &parents) const override;
+    bool isDefinedOnOrThrough(const ObjectImp *o, const Args &parents) const override;
+    std::vector<ObjectCalcer *> sortArgs(const std::vector<ObjectCalcer *> &args) const override;
+    Args sortArgs(const Args &args) const override;
+    bool canMove(const ObjectTypeCalcer &o) const override;
+    bool isFreelyTranslatable(const ObjectTypeCalcer &o) const override;
+    std::vector<ObjectCalcer *> movableParents(const ObjectTypeCalcer &ourobj) const override;
+    void move(ObjectTypeCalcer &o, const Coordinate &to, const KigDocument &d) const override;
+    const Coordinate moveReferencePoint(const ObjectTypeCalcer &o) const override;
 };
 
-int polygonlineintersection( const std::vector<Coordinate>& ppoints, 
-      const Coordinate &a, const Coordinate &b,
-      double& t1, double& t2,
-      std::vector<Coordinate>::const_iterator& intersectionside );
+int polygonlineintersection(const std::vector<Coordinate> &ppoints,
+                            const Coordinate &a,
+                            const Coordinate &b,
+                            double &t1,
+                            double &t2,
+                            std::vector<Coordinate>::const_iterator &intersectionside);
 
-int polygonlineintersection( const std::vector<Coordinate>& ppoints, 
-      const Coordinate &a, const Coordinate &b,
-      bool boundleft, bool boundright, bool inside, 
-      bool openpolygon, double& t1, double& t2,
-      std::vector<Coordinate>::const_iterator& intersectionside );
+int polygonlineintersection(const std::vector<Coordinate> &ppoints,
+                            const Coordinate &a,
+                            const Coordinate &b,
+                            bool boundleft,
+                            bool boundright,
+                            bool inside,
+                            bool openpolygon,
+                            double &t1,
+                            double &t2,
+                            std::vector<Coordinate>::const_iterator &intersectionside);
 
-class PolygonLineIntersectionType
-  : public ArgsParserObjectType
+class PolygonLineIntersectionType : public ArgsParserObjectType
 {
-  PolygonLineIntersectionType();
+    PolygonLineIntersectionType();
+
 protected:
-  PolygonLineIntersectionType( const char fulltypename[],
-                        const struct ArgsParser::spec argsspec[],
-                        int n );
-  ~PolygonLineIntersectionType();
+    PolygonLineIntersectionType(const char fulltypename[], const struct ArgsParser::spec argsspec[], int n);
+    ~PolygonLineIntersectionType();
+
 public:
-  static const PolygonLineIntersectionType* instance();
-  ObjectImp* calc( const Args& parents, const KigDocument& ) const Q_DECL_OVERRIDE;
-  const ObjectImpType* resultId() const Q_DECL_OVERRIDE;
+    static const PolygonLineIntersectionType *instance();
+    ObjectImp *calc(const Args &parents, const KigDocument &) const override;
+    const ObjectImpType *resultId() const override;
 };
 
-class OPolygonalLineIntersectionType
-  : public PolygonLineIntersectionType
+class OPolygonalLineIntersectionType : public PolygonLineIntersectionType
 {
-  OPolygonalLineIntersectionType();
-  ~OPolygonalLineIntersectionType();
+    OPolygonalLineIntersectionType();
+    ~OPolygonalLineIntersectionType();
+
 public:
-  static const OPolygonalLineIntersectionType* instance();
-  const ObjectImpType* resultId() const Q_DECL_OVERRIDE;
+    static const OPolygonalLineIntersectionType *instance();
+    const ObjectImpType *resultId() const override;
 };
 
-class CPolygonalLineIntersectionType
-  : public PolygonLineIntersectionType
+class CPolygonalLineIntersectionType : public PolygonLineIntersectionType
 {
-  CPolygonalLineIntersectionType();
-  ~CPolygonalLineIntersectionType();
+    CPolygonalLineIntersectionType();
+    ~CPolygonalLineIntersectionType();
+
 public:
-  static const CPolygonalLineIntersectionType* instance();
-  const ObjectImpType* resultId() const Q_DECL_OVERRIDE;
+    static const CPolygonalLineIntersectionType *instance();
+    const ObjectImpType *resultId() const override;
 };
 
-class PolygonPolygonIntersectionType
-  : public ArgsParserObjectType
+class PolygonPolygonIntersectionType : public ArgsParserObjectType
 {
-  PolygonPolygonIntersectionType();
-  ~PolygonPolygonIntersectionType();
+    PolygonPolygonIntersectionType();
+    ~PolygonPolygonIntersectionType();
+
 public:
-  static const PolygonPolygonIntersectionType* instance();
-  ObjectImp* calc( const Args& parents, const KigDocument& ) const Q_DECL_OVERRIDE;
-  const ObjectImpType* resultId() const Q_DECL_OVERRIDE;
+    static const PolygonPolygonIntersectionType *instance();
+    ObjectImp *calc(const Args &parents, const KigDocument &) const override;
+    const ObjectImpType *resultId() const override;
 };
 
-class PolygonVertexType
-  : public ArgsParserObjectType
+class PolygonVertexType : public ArgsParserObjectType
 {
-  PolygonVertexType();
-  ~PolygonVertexType();
+    PolygonVertexType();
+    ~PolygonVertexType();
+
 public:
-  static const PolygonVertexType* instance();
-  ObjectImp* calc( const Args& parents, const KigDocument& ) const Q_DECL_OVERRIDE;
-  const ObjectImpType* resultId() const Q_DECL_OVERRIDE;
+    static const PolygonVertexType *instance();
+    ObjectImp *calc(const Args &parents, const KigDocument &) const override;
+    const ObjectImpType *resultId() const override;
 };
 
-class PolygonSideType
-  : public ArgsParserObjectType
+class PolygonSideType : public ArgsParserObjectType
 {
-  PolygonSideType();
-  ~PolygonSideType();
+    PolygonSideType();
+    ~PolygonSideType();
+
 public:
-  static const PolygonSideType* instance();
-  ObjectImp* calc( const Args& parents, const KigDocument& ) const Q_DECL_OVERRIDE;
-  const ObjectImpType* resultId() const Q_DECL_OVERRIDE;
+    static const PolygonSideType *instance();
+    ObjectImp *calc(const Args &parents, const KigDocument &) const override;
+    const ObjectImpType *resultId() const override;
 };
 
-class ConvexHullType
-  : public ArgsParserObjectType
+class ConvexHullType : public ArgsParserObjectType
 {
-  ConvexHullType();
-  ~ConvexHullType();
-public:
-  static const ConvexHullType* instance();
-  ObjectImp* calc( const Args& parents, const KigDocument& ) const Q_DECL_OVERRIDE;
-  const ObjectImpType* resultId() const Q_DECL_OVERRIDE;
-};
+    ConvexHullType();
+    ~ConvexHullType();
 
-#endif
+public:
+    static const ConvexHullType *instance();
+    ObjectImp *calc(const Args &parents, const KigDocument &) const override;
+    const ObjectImpType *resultId() const override;
+};

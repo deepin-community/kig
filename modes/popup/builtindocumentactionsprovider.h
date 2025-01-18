@@ -5,20 +5,16 @@
     SPDX-License-Identifier: GPL-2.0-or-later
 */
 
-#ifndef BUILTINDOCUMENTACTIONSPROVIDER_H
-#define BUILTINDOCUMENTACTIONSPROVIDER_H
+#pragma once
 
 #include "popupactionprovider.h"
 
-class BuiltinDocumentActionsProvider
-  : public PopupActionProvider
+class BuiltinDocumentActionsProvider : public PopupActionProvider
 {
-  int mnumberofcoordsystems;
-public:
-  void fillUpMenu( NormalModePopupObjects& popup, int menu, int& nextfree ) override;
-  bool executeAction( int menu, int& id, const std::vector<ObjectHolder*>& os,
-                      NormalModePopupObjects& popup,
-                      KigPart& doc, KigWidget& w, NormalMode& m ) override;
-};
+    int mnumberofcoordsystems;
 
-#endif // BUILTINDOCUMENTACTIONSPROVIDER_H
+public:
+    void fillUpMenu(NormalModePopupObjects &popup, int menu, int &nextfree) override;
+    bool
+    executeAction(int menu, int &id, const std::vector<ObjectHolder *> &os, NormalModePopupObjects &popup, KigPart &doc, KigWidget &w, NormalMode &m) override;
+};

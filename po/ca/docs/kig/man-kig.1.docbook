@@ -80,7 +80,7 @@
 <para
 >Amb aquest programa podeu fer geometria en un ordinador com ho faríeu en una pissarra en una aula. No obstant això, el programa us permet moure i canviar parts d'un dibuix geomètric per a veure com canvien altres parts i el resultat.</para>
 <para
->El &kig; dóna suport a llocs geomètrics i macros definides per l'usuari. També les importacions i exportacions cap a i des dels formats aliens de fitxer, incloent-hi <application
+>El &kig; dona suport a llocs geomètrics i macros definides per l'usuari. També les importacions i exportacions cap a i des dels formats aliens de fitxer, incloent-hi <application
 >Cabri</application
 >, <application
 >Dr. Geo</application
@@ -136,7 +136,7 @@
 <para
 >Hi ha disponible documentació d'usuari més detallada des de <ulink url="help:/kig"
 >help:/kig</ulink
-> (introduïu aquest &URL; al &konqueror; o executeu <userinput
+> (podeu emprar aquest &URL; al &konqueror; o bé executar <userinput
 ><command
 >khelpcenter</command
 > <parameter

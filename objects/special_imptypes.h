@@ -2,8 +2,7 @@
 
 // SPDX-License-Identifier: GPL-2.0-or-later
 
-#ifndef KIG_OBJECTS_SPECIAL_IMPTYPES_H
-#define KIG_OBJECTS_SPECIAL_IMPTYPES_H
+#pragma once
 
 #include "object_imp.h"
 
@@ -27,37 +26,34 @@
  *
  */
 
-double getDoubleFromImp( const ObjectImp*, bool& );
+double getDoubleFromImp(const ObjectImp *, bool &);
 
-class LengthImpType
-  : public ObjectImpType
+class LengthImpType : public ObjectImpType
 {
 public:
-  LengthImpType( const ObjectImpType* parent, const char* internalname );
-  ~LengthImpType();
-  bool match( const ObjectImpType* t ) const Q_DECL_OVERRIDE;
+    LengthImpType(const ObjectImpType *parent, const char *internalname);
+    ~LengthImpType();
+    bool match(const ObjectImpType *t) const override;
 };
 
 extern LengthImpType lengthimptypeinstance;
 
-class AngleImpType
-  : public ObjectImpType
+class AngleImpType : public ObjectImpType
 {
 public:
-  AngleImpType( const ObjectImpType* parent, const char* internalname );
-  ~AngleImpType();
-  bool match( const ObjectImpType* t ) const Q_DECL_OVERRIDE;
+    AngleImpType(const ObjectImpType *parent, const char *internalname);
+    ~AngleImpType();
+    bool match(const ObjectImpType *t) const override;
 };
 
 extern AngleImpType angleimptypeinstance;
 
-class WeightImpType
-  : public ObjectImpType
+class WeightImpType : public ObjectImpType
 {
 public:
-  WeightImpType( const ObjectImpType* parent, const char* internalname );
-  ~WeightImpType();
-  bool match( const ObjectImpType* t ) const Q_DECL_OVERRIDE;
+    WeightImpType(const ObjectImpType *parent, const char *internalname);
+    ~WeightImpType();
+    bool match(const ObjectImpType *t) const override;
 };
 
 extern WeightImpType weightimptypeinstance;
@@ -74,15 +70,12 @@ extern WeightImpType weightimptypeinstance;
  * directly from ObjectType.
  */
 
-class InvertibleImpType
-  : public ObjectImpType
+class InvertibleImpType : public ObjectImpType
 {
 public:
-  InvertibleImpType( const ObjectImpType* parent, const char* internalname );
-  ~InvertibleImpType();
-  bool match( const ObjectImpType* t ) const Q_DECL_OVERRIDE;
+    InvertibleImpType(const ObjectImpType *parent, const char *internalname);
+    ~InvertibleImpType();
+    bool match(const ObjectImpType *t) const override;
 };
 
 extern InvertibleImpType invertibleimptypeinstance;
-
-#endif

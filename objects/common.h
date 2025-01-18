@@ -2,18 +2,16 @@
 
 // SPDX-License-Identifier: GPL-2.0-or-later
 
-#ifndef KIG_OBJECTS_COMMON_H
-#define KIG_OBJECTS_COMMON_H
+#pragma once
 
+#include <cassert>
 #include <set>
 #include <vector>
-#include <cassert>
 
 #include <QByteArray>
 #include <QList>
-#include <QStringList>
 
-#include <KI18n/KLocalizedString>
+#include <KLocalizedString>
 
 class Coordinate;
 class KigDocument;
@@ -35,27 +33,26 @@ class Rect;
 class ScreenInfo;
 class Transformation;
 
-typedef std::vector<const ObjectImp*> Args;
+typedef std::vector<const ObjectImp *> Args;
 typedef QList<QByteArray> QByteArrayList;
 
 template<typename T>
-void delete_all( T begin, T end )
+void delete_all(T begin, T end)
 {
-  for( ; begin != end; ++begin )
-  {
-    delete *begin;
-  }
+    for (; begin != end; ++begin) {
+        delete *begin;
+    }
 }
 
 /**
  * get the calcers that the holders represent and their namecalcers
  */
-std::vector<ObjectCalcer*> getAllCalcers( const std::vector<ObjectHolder*>& os );
+std::vector<ObjectCalcer *> getAllCalcers(const std::vector<ObjectHolder *> &os);
 
 /**
  * get the calcers that the holders represent ( not their namecalcers )
  */
-std::vector<ObjectCalcer*> getCalcers( const std::vector<ObjectHolder*>& os );
+std::vector<ObjectCalcer *> getCalcers(const std::vector<ObjectHolder *> &os);
 
 /**
  * The below is a trick.  ObjectType's implement the singleton
@@ -85,12 +82,12 @@ std::vector<ObjectCalcer*> getCalcers( const std::vector<ObjectHolder*>& os );
  * \endcode
  * to the .cpp file of your class.
  */
-class FakeClass {
+class FakeClass
+{
 public:
-  FakeClass( const ObjectType* ) {
-  }
+    FakeClass(const ObjectType *)
+    {
+    }
 };
 
-#define KIG_INSTANTIATE_OBJECT_TYPE_INSTANCE( type ) static class FakeClass _fake_class_instance_##type( type::instance() );
-
-#endif
+#define KIG_INSTANTIATE_OBJECT_TYPE_INSTANCE(type) static class FakeClass _fake_class_instance_##type(type::instance());

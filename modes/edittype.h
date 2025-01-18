@@ -4,8 +4,7 @@
 
 // SPDX-License-Identifier: GPL-2.0-or-later
 
-#ifndef KIG_MODES_EDITTYPE_H
-#define KIG_MODES_EDITTYPE_H
+#pragma once
 
 #include <QDialog>
 
@@ -16,26 +15,24 @@ class Ui_EditTypeWidget;
  */
 class EditType : public QDialog
 {
-  Q_OBJECT
+    Q_OBJECT
 
-  Ui_EditTypeWidget* medittypewidget;
+    Ui_EditTypeWidget *medittypewidget;
 
-  QString mname;
-  QString mdesc;
-  QString micon;
+    QString mname;
+    QString mdesc;
+    QString micon;
+
 public:
-  explicit EditType( QWidget* parent, const QString& name = QString(),
-                     const QString& desc = QString(), const QString& icon = QString() );
-  ~EditType();
+    explicit EditType(QWidget *parent, const QString &name = QString(), const QString &desc = QString(), const QString &icon = QString());
+    ~EditType();
 
-  QString name() const;
-  QString description() const;
-  QString icon() const;
+    QString name() const;
+    QString description() const;
+    QString icon() const;
 
-private slots:
-  void slotHelp();
-  void slotOk();
-  void slotCancel();
+private Q_SLOTS:
+    void slotHelp();
+    void slotOk();
+    void slotCancel();
 };
-
-#endif

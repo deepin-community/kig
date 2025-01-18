@@ -2,8 +2,7 @@
 
 // SPDX-License-Identifier: GPL-2.0-or-later
 
-#ifndef KIG_FILTERS_XFIGEXPORTER_H
-#define KIG_FILTERS_XFIGEXPORTER_H
+#pragma once
 
 #include "exporter.h"
 
@@ -12,14 +11,12 @@
  * It exports to the XFig file format, as documented in the file
  * FORMAT3.2 in the XFig source distribution.
  */
-class XFigExporter
-  : public KigExporter
+class XFigExporter : public KigExporter
 {
 public:
-  ~XFigExporter();
-  QString exportToStatement() const Q_DECL_OVERRIDE;
-  QString menuEntryName() const Q_DECL_OVERRIDE;
-  QString menuIcon() const Q_DECL_OVERRIDE;
-  void run( const KigPart& doc, KigWidget& w ) Q_DECL_OVERRIDE;
+    ~XFigExporter();
+    QString exportToStatement() const override;
+    QString menuEntryName() const override;
+    QString menuIcon() const override;
+    void run(const KigPart &doc, KigWidget &w) override;
 };
-#endif
