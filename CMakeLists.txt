@@ -1,33 +1,18 @@
-
-cmake_minimum_required(VERSION 3.5)
+cmake_minimum_required(VERSION 3.16)
 
 # KDE Application Version, managed by release script
-set(RELEASE_SERVICE_VERSION_MAJOR "21")
-set(RELEASE_SERVICE_VERSION_MINOR "08")
-set(RELEASE_SERVICE_VERSION_MICRO "0")
+set(RELEASE_SERVICE_VERSION_MAJOR "22")
+set(RELEASE_SERVICE_VERSION_MINOR "12")
+set(RELEASE_SERVICE_VERSION_MICRO "3")
 set(RELEASE_SERVICE_VERSION "${RELEASE_SERVICE_VERSION_MAJOR}.${RELEASE_SERVICE_VERSION_MINOR}.${RELEASE_SERVICE_VERSION_MICRO}")
 
 project(kig VERSION ${RELEASE_SERVICE_VERSION})
 
-find_package(Qt5Svg REQUIRED)
-find_package(Qt5PrintSupport REQUIRED)
-find_package(Qt5XmlPatterns 5.5.1)
-
-find_package(ECM 1.7 REQUIRED NO_MODULE)
-find_package(KF5Parts REQUIRED)
-find_package(KF5DocTools REQUIRED)
-find_package(KF5I18n REQUIRED)
-find_package(KF5TextEditor REQUIRED)
-find_package(KF5IconThemes REQUIRED)
-find_package(KF5ConfigWidgets REQUIRED)
-find_package(KF5Archive REQUIRED)
-find_package(KF5XmlGui 5.1 REQUIRED)
-find_package(KF5Crash 5.15 REQUIRED)
-find_package(KF5CoreAddons REQUIRED)
-
-set(CMAKE_MODULE_PATH ${kig_SOURCE_DIR}/cmake/modules ${ECM_MODULE_PATH})
 
 set (KDE5_ICON_DIR  ${CMAKE_INSTALL_PREFIX}/share/icons)
+
+find_package(ECM REQUIRED NO_MODULE)
+set(CMAKE_MODULE_PATH ${kig_SOURCE_DIR}/cmake/modules ${ECM_MODULE_PATH})
 
 include(ECMAddAppIcon)
 include(ECMInstallIcons)
@@ -38,11 +23,34 @@ include(KDECMakeSettings)
 include(FeatureSummary)
 include(GenerateExportHeader)
 include(ECMSetupVersion)
+include(KDEGitCommitHooks)
+include(KDEClangFormat)
+file(GLOB_RECURSE ALL_CLANG_FORMAT_SOURCE_FILES *.cpp *.h *.c)
+kde_clang_format(${ALL_CLANG_FORMAT_SOURCE_FILES})
+
+set(QT_MIN_VERSION "5.15.0")
+set(KF5_MIN_VERSION "5.90.0")
+set(KDE_COMPILERSETTINGS_LEVEL "5.82")
+
+find_package(KF5Parts ${KF5_MIN_VERSION} REQUIRED)
+find_package(KF5DocTools ${KF5_MIN_VERSION} REQUIRED)
+find_package(KF5I18n ${KF5_MIN_VERSION} REQUIRED)
+find_package(KF5TextEditor ${KF5_MIN_VERSION} REQUIRED)
+find_package(KF5IconThemes ${KF5_MIN_VERSION} REQUIRED)
+find_package(KF5ConfigWidgets ${KF5_MIN_VERSION} REQUIRED)
+find_package(KF5Archive ${KF5_MIN_VERSION} REQUIRED)
+find_package(KF5XmlGui ${KF5_MIN_VERSION} REQUIRED)
+find_package(KF5Crash ${KF5_MIN_VERSION} REQUIRED)
+find_package(KF5CoreAddons ${KF5_MIN_VERSION} REQUIRED)
+find_package(Qt${QT_MAJOR_VERSION}Svg ${QT_REQUIRED_VERSION} REQUIRED)
+find_package(Qt${QT_MAJOR_VERSION}PrintSupport ${QT_REQUIRED_VERSION}REQUIRED)
+find_package(Qt${QT_MAJOR_VERSION}XmlPatterns ${QT_REQUIRED_VERSION})
+
 
 ecm_setup_version(${RELEASE_SERVICE_VERSION} VARIABLE_PREFIX KIG VERSION_HEADER kig_version.h)
 
-add_definitions (-DQT_USE_FAST_CONCATENATION -DQT_USE_FAST_OPERATOR_PLUS)
-include_directories (${Qt5Gui_INCLUDE_DIRS} ${CMAKE_SOURCE_DIR} ${CMAKE_BINARY_DIR} ${KDE5_INCLUDES})
+add_definitions (-DQT_USE_FAST_CONCATENATION -DQT_USE_FAST_OPERATOR_PLUS -DQT_NO_KEYWORDS)
+include_directories (${CMAKE_SOURCE_DIR} ${CMAKE_BINARY_DIR})
 
 
 if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID STREQUAL "Clang" OR CMAKE_CXX_COMPILER_ID STREQUAL "Intel")
@@ -75,8 +83,8 @@ set_package_properties(
 )
 
 set_package_properties(
-   Qt5XmlPatterns PROPERTIES
-   DESCRIPTION "Qt5 XmlPatterns Module"
+   Qt${QT_MAJOR_VERSION}XmlPatterns PROPERTIES
+   DESCRIPTION "Qt${QT_MAJOR_VERSION} XmlPatterns Module"
    URL "https://qt.io/"
    TYPE OPTIONAL
    PURPOSE "Kig uses the XML Patterns module in Qt to support Geogebra files"
@@ -203,16 +211,129 @@ set(kigpart_PART_SRCS
    kig/kig_document.cc
    kig/kig_part.cpp
    kig/kig_view.cpp
+
+
+   objects/angle_type.h
+   objects/arc_type.h
+   objects/base_type.h
+   objects/bogus_imp.h
+   objects/centerofcurvature_type.h
+   objects/circle_imp.h
+   objects/circle_type.h
+   objects/common.h
+   objects/conic_imp.h
+   objects/conic_types.h
+   objects/cubic_imp.h
+   objects/cubic_type.h
+   objects/curve_imp.h
+   objects/intersection_types.h
+   objects/inversion_type.h
+   objects/line_imp.h
+   objects/line_type.h
+   objects/locus_imp.h
+   objects/object_calcer.h
+   objects/object_drawer.h
+   objects/object_factory.h
+   objects/object_holder.h
+   objects/object_imp.h
+   objects/object_imp_factory.h
+   objects/object_type.h
+   objects/object_type_factory.h
+   objects/other_imp.h
+   objects/other_type.h
+   objects/point_imp.h
+   objects/point_type.h
+   objects/polygon_imp.h
+   objects/polygon_type.h
+   objects/bezier_imp.h
+   objects/bezier_type.h
+   objects/special_imptypes.h
+   objects/tangent_type.h
+   objects/tests_type.h
+   objects/text_imp.h
+   objects/text_type.h
+   objects/transform_types.h
+   objects/vector_type.h
+   misc/argsparser.h
+   misc/builtin_stuff.h
+   misc/calcpaths.h
+   misc/common.h
+   misc/conic-common.h
+   misc/coordinate.h
+   misc/coordinate_system.h
+   misc/cubic-common.h
+   misc/equationstring.h
+   misc/goniometry.h
+   misc/guiaction.h
+   misc/kigcoordinateprecisiondialog.h
+   misc/kigfiledialog.h
+   misc/kiginputdialog.h
+   misc/kignumerics.h
+   misc/kigpainter.h
+   misc/kigtransform.h
+   misc/lists.h
+   misc/object_constructor.h
+   misc/object_hierarchy.h
+   misc/rect.h
+   misc/screeninfo.h
+   misc/special_constructors.h
+   misc/unit.h
+   modes/base_mode.h
+   modes/construct_mode.h
+   modes/dragrectmode.h
+   modes/edittype.h
+   modes/historydialog.h
+   modes/label.h
+   modes/linkslabel.h
+   modes/macro.h
+   modes/macrowizard.h
+   modes/mode.h
+   modes/moving.h
+   modes/normal.h
+   modes/popup/popup.h
+   modes/popup/objectchooserpopup.h
+   modes/popup/propertiesactionsprovider.h
+   modes/popup/objectchooserpopup.h
+   modes/popup/objecttypeactionsprovider.h
+   modes/popup/nameobjectactionsprovider.h
+   modes/popup/objectconstructoractionsprovider.h
+   modes/popup/builtindocumentactionsprovider.h
+   modes/popup/builtinobjectactionsprovider.h
+   modes/textlabelwizard.h
+   modes/typesdialog.h
+   filters/asyexporter.h
+   filters/asyexporteroptions.h
+   filters/asyexporterimpvisitor.h
+   filters/cabri-filter.h
+   filters/cabri-utils.h
+   filters/drgeo-filter.h
+   filters/exporter.h
+   filters/filter.h
+   filters/filters-common.h
+   filters/imageexporteroptions.h
+   filters/kgeo-filter.h
+   filters/kseg-filter.h
+   filters/latexexporter.h
+   filters/latexexporteroptions.h
+   filters/native-filter.h
+   filters/pgfexporterimpvisitor.h
+   filters/svgexporter.h
+   filters/svgexporteroptions.h
+   filters/xfigexporter.h
+   kig/kig_commands.h
+   kig/kig_document.h
+   kig/kig_part.h
+   kig/kig_view.h
 )
 
-if (Qt5XmlPatterns_FOUND)
+if (Qt${QT_MAJOR_VERSION}XmlPatterns_FOUND)
   set(kigpart_PART_SRCS ${kigpart_PART_SRCS}
   geogebra/geogebratransformer.cpp
   geogebra/geogebrasection.cpp
   filters/geogebra-filter.cpp)
-  qt5_add_resources(kigpart_PART_SRCS ${CMAKE_SOURCE_DIR}/geogebra/geogebra.qrc)
+  qt_add_resources(kigpart_PART_SRCS ${CMAKE_SOURCE_DIR}/geogebra/geogebra.qrc)
   add_definitions(-DWITH_GEOGEBRA=1)
-endif(Qt5XmlPatterns_FOUND)
+endif()
 
 ki18n_wrap_ui(kigpart_PART_SRCS
    modes/typeswidget.ui
@@ -245,9 +366,9 @@ generate_export_header(kigpart)
 kcoreaddons_desktop_to_json(kigpart kig/kig_part.desktop)
 
 target_link_libraries(kigpart
-  Qt5::Gui
-  Qt5::Svg
-  Qt5::PrintSupport
+  Qt::Gui
+  Qt::Svg
+  Qt::PrintSupport
   KF5::Crash
   KF5::Parts
   KF5::I18n
@@ -255,25 +376,26 @@ target_link_libraries(kigpart
   KF5::IconThemes
   KF5::ConfigWidgets
   KF5::Archive
-  ${KDE5_KUTILS_LIBS}
 )
 
 if(BoostPython_FOUND)
   target_link_libraries(kigpart ${BoostPython_LIBRARIES} ${KDE5_KTEXTEDITOR_LIBS})
 endif(BoostPython_FOUND)
 
-if (Qt5XmlPatterns_FOUND)
-  target_link_libraries(kigpart Qt5::XmlPatterns)
-endif(Qt5XmlPatterns_FOUND)
+if (Qt${QT_MAJOR_VERSION}XmlPatterns_FOUND)
+  target_link_libraries(kigpart Qt::XmlPatterns)
+endif(Qt${QT_MAJOR_VERSION}XmlPatterns_FOUND)
 
 ki18n_install(po)
 if (KF5DocTools_FOUND)
     kdoctools_install(po)
 endif()
-install(TARGETS kigpart DESTINATION ${KDE_INSTALL_PLUGINDIR}/kf5/parts)
+install(TARGETS kigpart DESTINATION ${KDE_INSTALL_PLUGINDIR}/kf${QT_MAJOR_VERSION}/parts)
 install(FILES org.kde.kig.appdata.xml DESTINATION ${KDE_INSTALL_METAINFODIR})
 
 # unit tests
 if (BUILD_TESTING)
   add_subdirectory(tests)
 endif ()
+
+kde_configure_git_pre_commit_hook(CHECKS CLANG_FORMAT)

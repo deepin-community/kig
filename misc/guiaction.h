@@ -2,8 +2,7 @@
 
 // SPDX-License-Identifier: GPL-2.0-or-later
 
-#ifndef KIG_MISC_GUIACTION_H
-#define KIG_MISC_GUIACTION_H
+#pragma once
 
 #include <config-kig.h>
 
@@ -11,125 +10,123 @@
 #include "../scripting/script-common.h"
 #endif
 
-#include <QString>
-#include <QByteArray>
 #include <QAction>
+#include <QByteArray>
+#include <QString>
 
 class GUIAction;
 class KigPart;
 
-class KigGUIAction
-  : public QAction
+class KigGUIAction : public QAction
 {
-  Q_OBJECT
-  GUIAction* mact;
-  KigPart& mdoc;
+    Q_OBJECT
+    GUIAction *mact;
+    KigPart &mdoc;
+
 public:
-  KigGUIAction( GUIAction* act,
-                KigPart& doc );
+    KigGUIAction(GUIAction *act, KigPart &doc);
 
-  GUIAction* guiAction();
+    GUIAction *guiAction();
 
-  void plug( KigPart* doc );
-private slots:
-  void slotActivated();
+    void plug(KigPart *doc);
+private Q_SLOTS:
+    void slotActivated();
 };
 
 class GUIAction
 {
 public:
-  virtual ~GUIAction();
+    virtual ~GUIAction();
 
-  virtual QString description() const = 0;
-  virtual QByteArray iconFileName( const bool canBeNull = false ) const = 0;
-  virtual QString descriptiveName() const = 0;
-  virtual const char* actionName() const = 0;
-  virtual int shortcut() const = 0;
-  virtual void act( KigPart& ) = 0;
+    virtual QString description() const = 0;
+    virtual QString iconFileName(const bool canBeNull = false) const = 0;
+    virtual QString descriptiveName() const = 0;
+    virtual const char *actionName() const = 0;
+    virtual int shortcut() const = 0;
+    virtual void act(KigPart &) = 0;
 
-  virtual void plug( KigPart* doc, KigGUIAction* kact );
+    virtual void plug(KigPart *doc, KigGUIAction *kact);
 };
 
 class ObjectConstructor;
 
-class ConstructibleAction
-  : public GUIAction
+class ConstructibleAction : public GUIAction
 {
-  ObjectConstructor* mctor;
-  QByteArray mactionname;
-  int mshortcut;
+    ObjectConstructor *mctor;
+    QByteArray mactionname;
+    int mshortcut;
+
 public:
-  ConstructibleAction( ObjectConstructor* ctor, const QByteArray& actionname,
-                       int shortcut = 0 );
-  ~ConstructibleAction();
-  QString description() const Q_DECL_OVERRIDE;
-  QByteArray iconFileName( const bool canBeNull = false ) const Q_DECL_OVERRIDE;
-  QString descriptiveName() const Q_DECL_OVERRIDE;
-  const char* actionName() const Q_DECL_OVERRIDE;
-  int shortcut() const Q_DECL_OVERRIDE;
-  void act( KigPart& ) Q_DECL_OVERRIDE;
-  void plug( KigPart* doc, KigGUIAction* kact ) Q_DECL_OVERRIDE;
+    ConstructibleAction(ObjectConstructor *ctor, const QByteArray &actionname, int shortcut = 0);
+    ~ConstructibleAction();
+    QString description() const override;
+    QString iconFileName(const bool canBeNull = false) const override;
+    QString descriptiveName() const override;
+    const char *actionName() const override;
+    int shortcut() const override;
+    void act(KigPart &) override;
+    void plug(KigPart *doc, KigGUIAction *kact) override;
 };
 
-class ConstructPointAction
-  : public GUIAction
+class ConstructPointAction : public GUIAction
 {
-  const char* mactionname;
-public:
-  explicit ConstructPointAction( const char* actionname );
-  ~ConstructPointAction();
+    const char *mactionname;
 
-  QString description() const Q_DECL_OVERRIDE;
-  QByteArray iconFileName( const bool canBeNull = false ) const Q_DECL_OVERRIDE;
-  QString descriptiveName() const Q_DECL_OVERRIDE;
-  const char* actionName() const Q_DECL_OVERRIDE;
-  int shortcut() const Q_DECL_OVERRIDE;
-  void act( KigPart& ) Q_DECL_OVERRIDE;
+public:
+    explicit ConstructPointAction(const char *actionname);
+    ~ConstructPointAction();
+
+    QString description() const override;
+    QString iconFileName(const bool canBeNull = false) const override;
+    QString descriptiveName() const override;
+    const char *actionName() const override;
+    int shortcut() const override;
+    void act(KigPart &) override;
 };
 
-class ConstructTextLabelAction
-  : public GUIAction
+class ConstructTextLabelAction : public GUIAction
 {
-  const char* mactionname;
-public:
-  explicit ConstructTextLabelAction( const char* actionname );
+    const char *mactionname;
 
-  QString description() const Q_DECL_OVERRIDE;
-  QByteArray iconFileName( const bool canBeNull = false ) const Q_DECL_OVERRIDE;
-  QString descriptiveName() const Q_DECL_OVERRIDE;
-  const char* actionName() const Q_DECL_OVERRIDE;
-  int shortcut() const Q_DECL_OVERRIDE;
-  void act( KigPart& ) Q_DECL_OVERRIDE;
+public:
+    explicit ConstructTextLabelAction(const char *actionname);
+
+    QString description() const override;
+    QString iconFileName(const bool canBeNull = false) const override;
+    QString descriptiveName() const override;
+    const char *actionName() const override;
+    int shortcut() const override;
+    void act(KigPart &) override;
 };
 
-class AddFixedPointAction
-  : public GUIAction
+class AddFixedPointAction : public GUIAction
 {
-  const char* mactionname;
+    const char *mactionname;
+
 public:
-  explicit AddFixedPointAction( const char* actionname );
-  ~AddFixedPointAction();
-  QString description() const Q_DECL_OVERRIDE;
-  QByteArray iconFileName( const bool canBeNull = false ) const Q_DECL_OVERRIDE;
-  QString descriptiveName() const Q_DECL_OVERRIDE;
-  const char* actionName() const Q_DECL_OVERRIDE;
-  int shortcut() const Q_DECL_OVERRIDE;
-  void act( KigPart& ) Q_DECL_OVERRIDE;
+    explicit AddFixedPointAction(const char *actionname);
+    ~AddFixedPointAction();
+    QString description() const override;
+    QString iconFileName(const bool canBeNull = false) const override;
+    QString descriptiveName() const override;
+    const char *actionName() const override;
+    int shortcut() const override;
+    void act(KigPart &) override;
 };
 
-class ConstructNumericLabelAction
-  : public GUIAction
+class ConstructNumericLabelAction : public GUIAction
 {
-  const char* mactionname;
+    const char *mactionname;
+
 public:
-  explicit ConstructNumericLabelAction( const char* actionname );
-  ~ConstructNumericLabelAction();
-  QString description() const Q_DECL_OVERRIDE;
-  QByteArray iconFileName( const bool canBeNull = false ) const Q_DECL_OVERRIDE;
-  QString descriptiveName() const Q_DECL_OVERRIDE;
-  const char* actionName() const Q_DECL_OVERRIDE;
-  int shortcut() const Q_DECL_OVERRIDE;
-  void act( KigPart& ) Q_DECL_OVERRIDE;
+    explicit ConstructNumericLabelAction(const char *actionname);
+    ~ConstructNumericLabelAction();
+    QString description() const override;
+    QString iconFileName(const bool canBeNull = false) const override;
+    QString descriptiveName() const override;
+    const char *actionName() const override;
+    int shortcut() const override;
+    void act(KigPart &) override;
 };
 
 #if 0
@@ -141,7 +138,7 @@ public:
   TestAction( const char* actionname );
   ~TestAction();
   QString description() const;
-  QByteArray iconFileName( const bool canBeNull = false ) const;
+  QString iconFileName( const bool canBeNull = false ) const;
   QString descriptiveName() const;
   const char* actionName() const;
   void act( KigPart& );
@@ -150,27 +147,23 @@ public:
 
 #ifdef KIG_ENABLE_PYTHON_SCRIPTING
 
-class NewScriptAction
-  : public GUIAction
+class NewScriptAction : public GUIAction
 {
-  const char* mactionname;
-  const char* mdescname;
-  const char* mdescription;
-  const char* micon;
-  const ScriptType::Type mtype;
+    const char *mactionname;
+    const char *mdescname;
+    const char *mdescription;
+    const char *micon;
+    const ScriptType::Type mtype;
+
 public:
-  NewScriptAction( const char* descname, const char* description,
-                   const char* actionname, const ScriptType::Type type,
-                   const char* icon = "" );
-  ~NewScriptAction();
-  QString description() const override;
-  QByteArray iconFileName( const bool canBeNull = false ) const override;
-  QString descriptiveName() const override;
-  const char* actionName() const override;
-  void act( KigPart& ) override;
-  int shortcut() const override;
+    NewScriptAction(const char *descname, const char *description, const char *actionname, const ScriptType::Type type, const char *icon = "");
+    ~NewScriptAction();
+    QString description() const override;
+    QString iconFileName(const bool canBeNull = false) const override;
+    QString descriptiveName() const override;
+    const char *actionName() const override;
+    void act(KigPart &) override;
+    int shortcut() const override;
 };
 
 #endif // KIG_ENABLE_PYTHON_SCRIPTING
-
-#endif

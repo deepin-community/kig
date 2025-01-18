@@ -8,19 +8,15 @@
 
 /// note: this code comes from KGeo by Marc Bartsch.
 
-#ifndef RESOURCE_H
-#define RESOURCE_H
+#pragma once
 
 #include <iostream>
-#include <QString>
 
 ///////////////////////////////////////////////////////////////////
 // resource.h  -- contains macros used for commands
 
-
 ///////////////////////////////////////////////////////////////////
 // COMMAND VALUES FOR MENUBAR AND TOOLBAR ENTRIES
-
 
 ///////////////////////////////////////////////////////////////////
 // File-menu entries
@@ -160,9 +156,6 @@
 
 #define Str_AppName "KGeo"
 
-
 #define ID_overlayRectSize 24
 
 #define PI 3.1415926535
-
-#endif // RESOURCE_H

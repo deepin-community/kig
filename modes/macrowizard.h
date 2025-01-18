@@ -2,8 +2,7 @@
 
 // SPDX-License-Identifier: GPL-2.0-or-later
 
-#ifndef MACROWIZARD_H
-#define MACROWIZARD_H
+#pragma once
 
 #include <QWizard>
 
@@ -13,29 +12,28 @@ class FinalArgsPage;
 
 class MacroWizard : public QWizard
 {
-  Q_OBJECT
+    Q_OBJECT
 public:
-  MacroWizard( QWidget* parent, DefineMacroMode* m );
-  ~MacroWizard();
+    MacroWizard(QWidget *parent, DefineMacroMode *m);
+    ~MacroWizard();
 
-  static const int GivenArgsPageId = 0;
-  static const int FinalArgsPageId = 1;
-  static const int MacroInfoPageId = 2;
+    static const int GivenArgsPageId = 0;
+    static const int FinalArgsPageId = 1;
+    static const int MacroInfoPageId = 2;
 
-  void givenArgsChanged();
-  void finalArgsChanged();
+    void givenArgsChanged();
+    void finalArgsChanged();
 
-public slots:
-  void reject() Q_DECL_OVERRIDE;
-  void accept() Q_DECL_OVERRIDE;
+public Q_SLOTS:
+    void reject() override;
+    void accept() override;
 
-private slots:
-  void currentIdChanged( int id );
-  void slotHelpClicked();
+private Q_SLOTS:
+    void currentIdChanged(int id);
+    void slotHelpClicked();
+
 private:
-  DefineMacroMode* mmode;
-  GivenArgsPage* mgivenArgsPage;
-  FinalArgsPage* mfinalArgsPage;
+    DefineMacroMode *mmode;
+    GivenArgsPage *mgivenArgsPage;
+    FinalArgsPage *mfinalArgsPage;
 };
-
-#endif // MACROWIZARD_H

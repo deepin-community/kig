@@ -5,9 +5,7 @@
     SPDX-License-Identifier: GPL-2.0-or-later
 */
 
-
-#ifndef OBJECTCONSTRUCTORACTIONSPROVIDER_H
-#define OBJECTCONSTRUCTORACTIONSPROVIDER_H
+#pragma once
 
 #include "popupactionprovider.h"
 
@@ -15,15 +13,12 @@
 
 class ObjectConstructor;
 
-class ObjectConstructorActionsProvider
-  : public PopupActionProvider
+class ObjectConstructorActionsProvider : public PopupActionProvider
 {
-  std::vector<ObjectConstructor*> mctors[NormalModePopupObjects::NumberOfMenus];
-public:
-  void fillUpMenu( NormalModePopupObjects& popup, int menu, int& nextfree ) Q_DECL_OVERRIDE;
-  bool executeAction( int menu, int& id, const std::vector<ObjectHolder*>& os,
-                      NormalModePopupObjects& popup,
-                      KigPart& doc, KigWidget& w, NormalMode& m ) Q_DECL_OVERRIDE;
-};
+    std::vector<ObjectConstructor *> mctors[NormalModePopupObjects::NumberOfMenus];
 
-#endif // OBJECTCONSTRUCTORACTIONSPROVIDER_H
+public:
+    void fillUpMenu(NormalModePopupObjects &popup, int menu, int &nextfree) override;
+    bool
+    executeAction(int menu, int &id, const std::vector<ObjectHolder *> &os, NormalModePopupObjects &popup, KigPart &doc, KigWidget &w, NormalMode &m) override;
+};

@@ -18,9 +18,11 @@
 >bab@debian.org</email
 ></author>
 <date
->6 октября 2010 г.</date>
+>23 декабря 2020 г.</date>
+<releaseinfo
+>Приложения KDE 20.12</releaseinfo>
 <productname
->KDE</productname>
+>Приложения KDE</productname>
 </refentryinfo>
 
 <refmeta>
@@ -38,7 +40,7 @@
 >kig</command
 ></refname>
 <refpurpose
->интерактивная геометрия для KDE</refpurpose>
+>Программа интерактивной геометрии, разработанная &kde;</refpurpose>
 </refnamediv>
 
 <refsynopsisdiv>
@@ -56,9 +58,7 @@
 > </group
 > </group
 > <arg choice="opt"
->специфические параметры KDE</arg
-> <arg choice="opt"
->специфические параметры Qt</arg
+>параметры</arg
 > </cmdsynopsis>
 </refsynopsisdiv>
 
@@ -132,13 +132,11 @@
 
 <refsect1>
 <title
->См. также</title>
+>Смотрите также</title>
 <para
 >Более подробная документация доступна по адресу <ulink url="help:/kig"
 >help:/kig</ulink
-> (введите данный <acronym
->URL</acronym
-> в адресную строку &konqueror; или выполните команду <userinput
+> (введите данный &URL;-адрес в адресную строку &konqueror; или выполните команду <userinput
 ><command
 >khelpcenter</command
 > <parameter
@@ -147,8 +145,8 @@
 >).</para>
 
 <para
->Дополнительная информация доступна на <ulink url="http://edu.kde.org/kig/"
->образовательном сайте KDE</ulink
+>Дополнительная информация доступна на <ulink url="https://edu.kde.org/kig/"
+>сайте проекта &kde; «Образование»</ulink
 >.</para>
 </refsect1>
 
@@ -188,9 +186,17 @@
 ></personname
 > <email
 >toscano.pino@tiscali.it</email
+>, <personname
+><firstname
+>David E.</firstname
+><surname
+>Narvaez</surname
+></personname
+> <email
+>david.narvaez@computer.org</email
 > и другими.</para>
 <para
->Это руководство основано на странице для Debian, написанной Беном Бартоном (<personname
+>Это руководство основано на странице для &Debian;, написанной Беном Бартоном (<personname
 ><firstname
 >Ben</firstname
 ><surname

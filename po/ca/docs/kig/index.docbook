@@ -73,7 +73,7 @@
 
 <abstract>
 <para
->El &kig; és una programa de geometria interactiva per al &kde;. </para>
+>El &kig; és un programa de geometria interactiva per al &kde;. </para>
 </abstract>
 
 <keywordset>
@@ -216,7 +216,7 @@ format="PNG"/>
 </mediaobject>
 </screenshot>
 <para
->Així s'inicia la construcció del tipus d'objecte escollit. Tots aquests tipus requereixen arguments. Per exemple, si seleccioneu la construcció d'un cercle per centre i punt, necessitareu donar dos punts: un per al centre i l'altre com a punt per on passa la circumferència. </para>
+>Així s'inicia la construcció del tipus d'objecte escollit. Tots aquests tipus requereixen arguments. Per exemple, si seleccioneu la construcció d'un cercle per centre i punt, necessitareu donar dos punts: un per al centre i l'altre com a punt per a on passa la circumferència. </para>
 <para
 >Aquests arguments també són objectes, els quals es poden seleccionar fent-hi clic. Quan passeu el cursor per sobre d'un objecte que podeu utilitzar per a construir un objecte, es mostrarà una imatge preliminar -d'aquesta manera podreu veure com quedarà-. Per a objectes que requereixin punts com a arguments, podeu posar-los a la posició actual del cursor fent clic amb el &BER;. </para>
 <para
@@ -571,7 +571,7 @@ rotation.</para>
 <para
 >Una de les característiques més avançades del &kig; és la seva capacitat de treballar amb macros. Això permet definir nous tipus d'objectes a partir d'altres que ja estan definits. </para>
 <para
->Per exemple: suposem que voleu crear una macro per a construir un cercle a partir de tres punts. Haureu d'introduir els tres punts i després construir algunes perpendiculars i punts mitjos fins a trobar el centre. Ara ja podeu utilitzar l'ordre existent de <guimenuitem
+>Per exemple: suposem que voleu crear una macro per a construir un cercle a partir de tres punts. Haureu d'introduir els tres punts i després construir algunes perpendiculars i punts mitjans fins a trobar el centre. Ara ja podeu utilitzar l'ordre existent de <guimenuitem
 >Cercle per centre i punt</guimenuitem
 > (utilitzant un dels tres punts com a punt per a aquesta ordre). La següent imatge ho deixarà una mica més clar: </para>
 <screenshot>
@@ -589,7 +589,7 @@ rotation.</para>
 </screenshot>
 
 <para
->Ara toca definir la macro. Seleccioneu l'element de menu <menuchoice
+>Ara toca definir la macro. Seleccioneu l'element de menú <menuchoice
 ><guimenu
 >Tipus</guimenu
 ><guimenuitem
@@ -775,11 +775,11 @@ format="PNG"/>
 <title
 >Llocs geomètrics</title>
 <para
->El &kig; permet l'ús de llocs geomètrics. Un lloc geomètric es defineix matemàticament com el conjunt de tots els punts o rectes que compleixen o vénen determinats per condicions específiques, com en el cas d'un cercle que és el <quote
+>El &kig; permet l'ús de llocs geomètrics. Un lloc geomètric es defineix matemàticament com el conjunt de tots els punts o rectes que compleixen o venen determinats per condicions específiques, com en el cas d'un cercle que és el <quote
 >lloc geomètric dels punts que equidisten d'un punt donat</quote
 >. Veiem un exemple de com utilitzar els llocs geomètrics amb el &kig;: </para>
 <para
->Considereu la següent construcció geomètrica. Dibuixem un cercle i un punt que només podeu moure al llarg de la seva circumferència (construïu aquest punt posicionant el cursor sobre un cercle, i fent clic amb el &BMR;. Si aleshores proveu de moure aquest punt veureu que només el podreu moure seguint el cercle). Després dibuixem un segment que vagi des d'aquest punt cap al centre del cercle i el seu punt mig. </para>
+>Considereu la següent construcció geomètrica. Dibuixem un cercle i un punt que només podeu moure al llarg de la seva circumferència (construïu aquest punt posicionant el cursor sobre un cercle, i fent clic amb el &BMR;. Si aleshores proveu de moure aquest punt veureu que només el podreu moure seguint el cercle). Després dibuixem un segment que vagi des d'aquest punt cap al centre del cercle i el seu punt mitjà. </para>
 <screenshot>
 <screeninfo
 >Una construcció senzilla fent servir llocs geomètrics</screeninfo>
@@ -828,11 +828,11 @@ format="PNG"/>
 >GNOME</acronym
 >). </para>
 <para
->La creació de scripts en Python en el &kig; bàsicament us permetrà crear els vostres propis objectes a partir d'altres objectes pare. Per exemple, si sou un professor de matemàtiques, i disposeu d'un mètode atractiu de calcular algun punt interessant d'una cònica, en lloc d'embolicar-vos amb construccions complexes i macros, n'hi ha prou amb què escriviu una mica de codi en Python de com es calcula el punt i aleshores el &kig; ho farà. </para>
+>La creació de scripts en Python en el &kig; bàsicament us permetrà crear els vostres propis objectes a partir d'altres objectes pare. Per exemple, si sou un professor de matemàtiques, i disposeu d'un mètode atractiu de calcular algun punt interessant d'una cònica, en lloc d'embolicar-vos amb construccions complexes i macros, n'hi ha prou amb que escriviu una mica de codi en Python de com es calcula el punt i aleshores el &kig; ho farà. </para>
 <para
 >Suposem que no esteu al cas de l'existència en el &kig; del tipus <quote
 >Punt mitjà</quote
->, i que voleu utilitzar el punt mig de dos punts donats. Aleshores cal que feu clic al botó &nbsp;<inlinemediaobject
+>, i que voleu utilitzar el punt mitjà de dos punts donats. Aleshores cal que feu clic al botó &nbsp;<inlinemediaobject
 > <imageobject
 > <imagedata fileref="text-x-python3.png" format="PNG"/></imageobject
 > </inlinemediaobject
@@ -861,7 +861,7 @@ format="PNG"/>
 </mediaobject>
 </screenshot>
 <para
->El primer que heu de fer és seleccionar els arguments per a l'objecte de script. En el nostre exemple, això són els dos punts dels quals volem mostrar el punt mig. Seleccioneu-los a la finestra principal del &kig; i feu clic al botó <guibutton
+>El primer que heu de fer és seleccionar els arguments per a l'objecte de script. En el nostre exemple, això són els dos punts dels quals volem mostrar el punt mitjà. Seleccioneu-los a la finestra principal del &kig; i feu clic al botó <guibutton
 >Següent</guibutton
 > per a continuar. </para>
 <para
@@ -877,7 +877,7 @@ format="PNG"/>
 >arg2</parameter
 >, però, si ho desitgeu, en podeu canviar els noms per altres més significatius. </para>
 <para
->A la funció, podeu fer tot tipus de càlculs que considereu necessaris, utilitzant els dos arguments sempre que calgui. Al final haureu de retornar l'objecte que voleu definir. En el nostre cas, això és un objecte <classname
+>A la funció, podeu fer tota mena de càlculs que considereu necessaris, utilitzant els dos arguments sempre que calgui. Al final haureu de retornar l'objecte que voleu definir. En el nostre cas, això és un objecte <classname
 >Point</classname
 >. Els dos arguments també són objectes <classname
 >Point</classname
@@ -902,7 +902,7 @@ format="PNG"/>
 </imageobject>
 <textobject>
 <phrase
->Escriure el codi per al punt mig a l'assistent objecte de script.</phrase>
+>Escriure el codi per al punt mitjà a l'assistent objecte de script.</phrase>
 </textobject>
 </mediaobject>
 </screenshot>
@@ -928,7 +928,7 @@ format="PNG"/>
 >Point</classname
 >, i podeu utilitzar, &pex;, el mètode <function
 >Point.coordinate()</function
->. També podeu retornar tot tipus d'objectes, no només objectes <classname
+>. També podeu retornar tota mena d'objectes, no només objectes <classname
 >Point</classname
 >. Moltes altres classes i mètodes estan disponibles en el codi en Python del &kig;, i en teniu una referència més completa a la <ulink url="https://edu.kde.org/kig/manual/scripting-api/index.html"
 >pàgina web del &kig;</ulink
@@ -1047,7 +1047,7 @@ format="PNG"/>
 <title
 >Col·laboracions</title>
 <para
->En aquest capítol vull remarcar-vos (a l'usuari) els drets que us dóna la llicència del &kig;. Com en tot el programari lliure, teniu permís (i us animem) per a arreglar els problemes que hi trobeu, afegir-hi característiques que hi trobeu a faltar, distribuir el programa modificat i envieu aquestes modificacions per a la seva inclusió a través de les eines de revisió disponibles per a la comunitat del &kde;. </para>
+>En aquest capítol vull remarcar-vos (a l'usuari) els drets que us dona la llicència del &kig;. Com en tot el programari lliure, teniu permís (i us animem) per a arreglar els problemes que hi trobeu, afegir-hi característiques que hi trobeu a faltar, distribuir el programa modificat i envieu aquestes modificacions per a la seva inclusió a través de les eines de revisió disponibles per a la comunitat del &kde;. </para>
 <para
 >Si teniu algun dubte sobre els drets per a utilitzar aquest programari, o que d'altra gent empri les modificacions que hi feu, si us plau, llegiu la llicència. La trobareu al fitxer <filename
 >COPYING</filename

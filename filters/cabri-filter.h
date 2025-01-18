@@ -3,8 +3,7 @@
 
 // SPDX-License-Identifier: GPL-2.0-or-later
 
-#ifndef KIG_FILTERS_CABRI_FILTER_H
-#define KIG_FILTERS_CABRI_FILTER_H
+#pragma once
 
 #include "filter.h"
 
@@ -22,18 +21,16 @@ class CabriReader;
  * format from zero, by just looking at the input and output from a
  * (properly licensed) Cabri program...
  */
-class KigFilterCabri
-  : public KigFilter
+class KigFilterCabri : public KigFilter
 {
-  KigFilterCabri();
-  ~KigFilterCabri();
+    KigFilterCabri();
+    ~KigFilterCabri();
+
 public:
-  static KigFilterCabri* instance();
+    static KigFilterCabri *instance();
 
-  bool supportMime ( const QString& mime ) Q_DECL_OVERRIDE;
-  KigDocument* load ( const QString& fromfile ) Q_DECL_OVERRIDE;
-  
-  friend class CabriReader;
+    bool supportMime(const QString &mime) override;
+    KigDocument *load(const QString &fromfile) override;
+
+    friend class CabriReader;
 };
-
-#endif

@@ -3,8 +3,7 @@
 
 // SPDX-License-Identifier: GPL-2.0-or-later
 
-#ifndef KIG_FILTERS_DRGEO_FILTER_H
-#define KIG_FILTERS_DRGEO_FILTER_H
+#pragma once
 
 #include "filter.h"
 
@@ -15,19 +14,18 @@ class QString;
 /**
  * This is an import filter for the GNOME geometry program DrGeo.
  */
-class KigFilterDrgeo
-  : public KigFilter
+class KigFilterDrgeo : public KigFilter
 {
 protected:
-  KigFilterDrgeo();
-  ~KigFilterDrgeo();
+    KigFilterDrgeo();
+    ~KigFilterDrgeo();
+
 public:
-  static KigFilterDrgeo* instance();
+    static KigFilterDrgeo *instance();
 
-  bool supportMime( const QString& mime ) Q_DECL_OVERRIDE;
-  KigDocument* load( const QString& file ) Q_DECL_OVERRIDE;
+    bool supportMime(const QString &mime) override;
+    KigDocument *load(const QString &file) override;
+
 private:
-  KigDocument* importFigure( const QDomNode& f, const bool grid );
+    KigDocument *importFigure(const QDomNode &f, const bool grid);
 };
-
-#endif

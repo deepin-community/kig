@@ -2,8 +2,7 @@
 
 // SPDX-License-Identifier: GPL-2.0-or-later
 
-#ifndef KIG_FILTERS_LATEXEXPORTER_H
-#define KIG_FILTERS_LATEXEXPORTER_H
+#pragma once
 
 #include "exporter.h"
 
@@ -14,15 +13,12 @@ class KigWidget;
 /**
  * Export to LaTex.
  */
-class LatexExporter
-  : public KigExporter
+class LatexExporter : public KigExporter
 {
 public:
-  ~LatexExporter();
-  QString exportToStatement() const Q_DECL_OVERRIDE;
-  QString menuEntryName() const Q_DECL_OVERRIDE;
-  QString menuIcon() const Q_DECL_OVERRIDE;
-  void run( const KigPart& doc, KigWidget& w ) Q_DECL_OVERRIDE;
+    ~LatexExporter();
+    QString exportToStatement() const override;
+    QString menuEntryName() const override;
+    QString menuIcon() const override;
+    void run(const KigPart &doc, KigWidget &w) override;
 };
-
-#endif

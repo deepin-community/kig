@@ -5,14 +5,11 @@
     SPDX-License-Identifier: GPL-2.0-or-later
 */
 
-#ifndef KIG_MODES_TYPESDIALOG_H
-#define KIG_MODES_TYPESDIALOG_H
-
-#include <QAbstractItemModel>
-
-#include <QDialog>
+#pragma once
 
 #include "../misc/lists.h"
+#include <QAbstractTableModel>
+#include <QDialog>
 
 #include <vector>
 
@@ -24,33 +21,32 @@ class BaseListElement;
 /**
  * A model for representing the data.
  */
-class TypesModel
-  : public QAbstractTableModel
+class TypesModel : public QAbstractTableModel
 {
-  Q_OBJECT
+    Q_OBJECT
 
-  std::vector<BaseListElement*> melems;
+    std::vector<BaseListElement *> melems;
 
 public:
-  explicit TypesModel( QObject* parent = 0 );
-  virtual ~TypesModel();
+    explicit TypesModel(QObject *parent = nullptr);
+    virtual ~TypesModel();
 
-  void addMacros( const std::vector<Macro*>& macros );
-  void removeElements( const QModelIndexList& elems );
+    void addMacros(const std::vector<Macro *> &macros);
+    void removeElements(const QModelIndexList &elems);
 
-  void clear();
+    void clear();
 
-  void elementChanged( const QModelIndex& index );
+    void elementChanged(const QModelIndex &index);
 
-  bool isMacro( const QModelIndex& index ) const;
-  Macro* macroFromIndex( const QModelIndex& index ) const;
+    bool isMacro(const QModelIndex &index) const;
+    Macro *macroFromIndex(const QModelIndex &index) const;
 
-  // reimplementations from QAbstractTableModel
-  int columnCount( const QModelIndex& parent = QModelIndex() ) const Q_DECL_OVERRIDE;
-  QVariant data( const QModelIndex& index, int role = Qt::DisplayRole ) const Q_DECL_OVERRIDE;
-  QVariant headerData( int section, Qt::Orientation orientation, int role = Qt::DisplayRole ) const Q_DECL_OVERRIDE;
-  QModelIndex index( int row, int column, const QModelIndex& parent = QModelIndex() ) const Q_DECL_OVERRIDE;
-  int rowCount( const QModelIndex& parent = QModelIndex() ) const Q_DECL_OVERRIDE;
+    // reimplementations from QAbstractTableModel
+    int columnCount(const QModelIndex &parent = QModelIndex()) const override;
+    QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
+    QVariant headerData(int section, Qt::Orientation orientation, int role = Qt::DisplayRole) const override;
+    QModelIndex index(int row, int column, const QModelIndex &parent = QModelIndex()) const override;
+    int rowCount(const QModelIndex &parent = QModelIndex()) const override;
 };
 
 /**
@@ -58,33 +54,32 @@ public:
  */
 class TypesDialog : public QDialog
 {
-  Q_OBJECT
+    Q_OBJECT
 
-  // necessary because some MacroList functions need it..
-  KigPart& mpart;
-  QMenu* popup;
-  Ui_TypesWidget* mtypeswidget;
-  TypesModel* mmodel;
+    // necessary because some MacroList functions need it..
+    KigPart &mpart;
+    QMenu *popup;
+    Ui_TypesWidget *mtypeswidget;
+    TypesModel *mmodel;
+
 public:
-  TypesDialog( QWidget* parent, KigPart& );
-  ~TypesDialog();
+    TypesDialog(QWidget *parent, KigPart &);
+    ~TypesDialog();
 
-private slots:
-  void slotHelp();
-  void slotOk();
-  void slotCancel();
+private Q_SLOTS:
+    void slotHelp();
+    void slotOk();
+    void slotCancel();
 
-  void deleteType();
-  void exportType();
-  void importTypes();
-  void editType();
+    void deleteType();
+    void exportType();
+    void importTypes();
+    void editType();
 
-  void typeListContextMenu( const QPoint& );
+    void typeListContextMenu(const QPoint &);
 
 private:
-  QModelIndexList selectedRows() const;
-  //This method is called in the importTypes() slot in case the file being imported is a geogebra-tool file.
-  bool loadGeogebraTools( const QString&, std::vector<Macro*>&, KigPart& );
+    QModelIndexList selectedRows() const;
+    // This method is called in the importTypes() slot in case the file being imported is a geogebra-tool file.
+    bool loadGeogebraTools(const QString &, std::vector<Macro *> &, KigPart &);
 };
-
-#endif

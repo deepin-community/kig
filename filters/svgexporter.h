@@ -2,8 +2,7 @@
 
 // SPDX-License-Identifier: GPL-2.0-or-later
 
-#ifndef KIG_FILTERS_SVGEXPORTER_H
-#define KIG_FILTERS_SVGEXPORTER_H
+#pragma once
 
 #include "exporter.h"
 
@@ -14,15 +13,12 @@ class KigWidget;
 /**
  * Export to Scalable Vector Graphics (SVG)
  */
-class SVGExporter
-  : public KigExporter
+class SVGExporter : public KigExporter
 {
 public:
-  ~SVGExporter();
-  QString exportToStatement() const Q_DECL_OVERRIDE;
-  QString menuEntryName() const Q_DECL_OVERRIDE;
-  QString menuIcon() const Q_DECL_OVERRIDE;
-  void run( const KigPart& part, KigWidget& w ) Q_DECL_OVERRIDE;
+    ~SVGExporter();
+    QString exportToStatement() const override;
+    QString menuEntryName() const override;
+    QString menuIcon() const override;
+    void run(const KigPart &part, KigWidget &w) override;
 };
-
-#endif

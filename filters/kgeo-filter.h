@@ -3,8 +3,7 @@
 
 // SPDX-License-Identifier: GPL-2.0-or-later
 
-#ifndef KIG_FILTERS_KGEO_FILTER_H
-#define KIG_FILTERS_KGEO_FILTER_H
+#pragma once
 
 #include "filter.h"
 
@@ -19,24 +18,22 @@ class KConfig;
  * Status: a significant part of KGeo's format is supported, not all
  * yet, though..
  */
-class KigFilterKGeo
-  : public KigFilter
+class KigFilterKGeo : public KigFilter
 {
 public:
-  static KigFilterKGeo* instance();
-  bool supportMime ( const QString& mime ) Q_DECL_OVERRIDE;
-  KigDocument* load ( const QString& from ) Q_DECL_OVERRIDE;
+    static KigFilterKGeo *instance();
+    bool supportMime(const QString &mime) override;
+    KigDocument *load(const QString &from) override;
+
 protected:
-  KigFilterKGeo();
-  ~KigFilterKGeo();
+    KigFilterKGeo();
+    ~KigFilterKGeo();
 
-  void loadMetrics ( KConfig* );
-  KigDocument* loadObjects ( KConfig* );
+    void loadMetrics(KConfig *);
+    KigDocument *loadObjects(KConfig *);
 
-  int xMax;
-  int yMax;
-  bool grid;
-  bool axes;
+    int xMax;
+    int yMax;
+    bool grid;
+    bool axes;
 };
-
-#endif
